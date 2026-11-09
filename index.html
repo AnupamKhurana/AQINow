@@ -7,98 +7,125 @@
     <style>
         :root {
             --primary: #0284c7;
-            --text-dark: #1e293b;
+            --primary-dark: #0369a1;
+            --text-dark: #0f172a;
+            --text-body: #334155;
             --text-muted: #64748b;
             --bg: #f8fafc;
             --card-bg: #ffffff;
             --border: #e2e8f0;
+            --info-bg: #f0f9ff;
+            --info-border: #38bdf8;
+            --warning-bg: #fffbeb;
+            --warning-border: #f59e0b;
+        }
+        * {
+            box-sizing: border-box;
         }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.65;
-            color: var(--text-dark);
+            line-height: 1.7;
+            color: var(--text-body);
             background-color: var(--bg);
             margin: 0;
             padding: 40px 20px;
         }
         .container {
-            max-width: 780px;
+            max-width: 820px;
             margin: 0 auto;
             background: var(--card-bg);
             padding: 48px;
-            border-radius: 12px;
+            border-radius: 14px;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
             border: 1px solid var(--border);
         }
         h1 {
-            color: #0f172a;
-            font-size: 2rem;
+            color: var(--text-dark);
+            font-size: 2.1rem;
             margin-top: 0;
             margin-bottom: 8px;
-            border-bottom: 2px solid var(--border);
-            padding-bottom: 16px;
+            font-weight: 700;
         }
         .last-updated {
             color: var(--text-muted);
             font-size: 0.95rem;
             margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid var(--border);
         }
         h2 {
-            color: #0f172a;
-            font-size: 1.35rem;
-            margin-top: 32px;
-            margin-bottom: 12px;
+            color: var(--text-dark);
+            font-size: 1.4rem;
+            margin-top: 36px;
+            margin-bottom: 14px;
             border-bottom: 1px solid var(--border);
             padding-bottom: 8px;
         }
         h3 {
-            color: #334155;
+            color: #1e293b;
             font-size: 1.15rem;
-            margin-top: 20px;
-            margin-bottom: 8px;
-        }
-        h4 {
-            color: #475569;
-            font-size: 1.05rem;
-            margin-top: 16px;
-            margin-bottom: 6px;
+            margin-top: 24px;
+            margin-bottom: 10px;
         }
         p, li {
-            font-size: 1rem;
-            color: #334155;
+            font-size: 1.02rem;
+            color: var(--text-body);
         }
-        ul {
+        ul, ol {
             padding-left: 24px;
-            margin-bottom: 16px;
+            margin-bottom: 18px;
         }
         li {
-            margin-bottom: 6px;
+            margin-bottom: 8px;
         }
-        .highlight-box {
-            background-color: #f0f9ff;
+        .core-principles {
+            background-color: var(--info-bg);
             border-left: 4px solid var(--primary);
-            padding: 16px 20px;
-            margin: 20px 0;
-            border-radius: 4px;
+            padding: 18px 22px;
+            margin: 24px 0;
+            border-radius: 6px;
         }
-        .highlight-box p {
-            margin: 0;
-            color: #0369a1;
-            font-weight: 500;
+        .core-principles h3 {
+            margin-top: 0;
+            color: var(--primary-dark);
+        }
+        .core-principles ul {
+            margin-bottom: 0;
+            padding-left: 20px;
+        }
+        .prominent-disclosure {
+            background-color: var(--warning-bg);
+            border-left: 4px solid var(--warning-border);
+            padding: 18px 22px;
+            margin: 24px 0;
+            border-radius: 6px;
+        }
+        .prominent-disclosure h3 {
+            margin-top: 0;
+            color: #b45309;
+        }
+        .code-pill {
+            background: #f1f5f9;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.9em;
+            color: #475569;
         }
         a {
             color: var(--primary);
             text-decoration: none;
+            font-weight: 500;
         }
         a:hover {
             text-decoration: underline;
         }
         footer {
-            margin-top: 40px;
-            padding-top: 20px;
+            margin-top: 48px;
+            padding-top: 24px;
             border-top: 1px solid var(--border);
             color: var(--text-muted);
-            font-size: 0.875rem;
+            font-size: 0.9rem;
             text-align: center;
         }
         @media (max-width: 640px) {
@@ -106,10 +133,10 @@
                 padding: 16px 12px;
             }
             .container {
-                padding: 24px 20px;
+                padding: 24px 18px;
             }
             h1 {
-                font-size: 1.6rem;
+                font-size: 1.7rem;
             }
             h2 {
                 font-size: 1.25rem;
@@ -122,78 +149,97 @@
         <h1>Privacy Policy for AQI Now</h1>
         <div class="last-updated"><strong>Last Updated:</strong> November 9, 2026</div>
 
-        <p>Excel Technologies India ("we," "us," or "our") operates the <strong>AQI Now</strong> mobile application (the "App"). This page informs you of our policies regarding the collection, use, and disclosure of personal data when you use our App and the choices you have associated with that data.</p>
+        <p>Excel Technologies India ("we," "us," or "our") operates the <strong>AQI Now</strong> mobile application (the "App"). This Privacy Policy explains how we collect, use, and protect your information when you use our App, and describes your privacy rights in accordance with Google Play Developer Policies and global data protection regulations.</p>
 
-        <div class="highlight-box">
-            <p>Note: AQI Now does not require you to create an account or provide any personally identifiable information like your name, phone number, or email address to use the App.</p>
+        <div class="core-principles">
+            <h3>Core Principles</h3>
+            <ul>
+                <li><strong>No User Accounts:</strong> You can use AQI Now without creating an account, registering, or providing any personal information (such as your name, email address, or phone number).</li>
+                <li><strong>No Advertisements:</strong> AQI Now contains no third-party advertisements or ad tracking SDKs.</li>
+                <li><strong>No Data Selling:</strong> We never sell, monetize, or rent your data to third parties.</li>
+            </ul>
         </div>
 
-        <h2>1. Information Collection and Use</h2>
-        <p>We collect several different types of information for various purposes to provide and improve our service to you.</p>
+        <h2>1. Information Collection and Permissions</h2>
 
-        <h3>Types of Data Collected</h3>
+        <h3>Location Data (Foreground and Background)</h3>
+        <p>AQI Now is an air quality monitoring application designed to provide hyperlocal Air Quality Index (AQI) readings, health advisories, and nearby station data. To deliver these services, the App requires access to your device location:</p>
 
-        <h4>Location Data</h4>
-        <p>To provide accurate air quality data for your specific location, the App requests access to your device's location.</p>
+        <h4>1. Foreground Location (Approximate and Precise)</h4>
         <ul>
-            <li><strong>Precise Location (GPS and network-based):</strong> We use your precise location to calculate the "Estimated Local AQI" by interpolating data from the nearest official monitoring stations.</li>
-            <li><strong>Approximate Location (network-based):</strong> We may use approximate location if precise location is unavailable.</li>
-            <li><strong>Processing:</strong> This location data is processed locally on your device or sent as numerical coordinates (Latitude/Longitude) to official air quality data providers (CPCB). We <strong>do not</strong> store a history of your real-time coordinates on our servers.</li>
+            <li><strong>Permissions:</strong> <span class="code-pill">ACCESS_COARSE_LOCATION</span> and <span class="code-pill">ACCESS_FINE_LOCATION</span>.</li>
+            <li><strong>Purpose:</strong> When the App is open, your location coordinates (Latitude and Longitude) are used to find the nearest official air quality monitoring stations, compute hyperlocal AQI values, and display your relative position on the air quality map.</li>
+            <li><strong>Processing:</strong> Coordinates are sent securely via HTTPS to our API server to query nearby monitoring stations. Your coordinates are never stored in tracking profiles or linked to your identity.</li>
         </ul>
 
-        <h4>Local Data Storage</h4>
+        <div class="prominent-disclosure">
+            <h3>2. Background Location Disclosure</h3>
+            <p><strong>Permission:</strong> <span class="code-pill">ACCESS_BACKGROUND_LOCATION</span></p>
+            <p><strong>Why Background Location is Needed:</strong> AQI Now provides <strong>Home Screen Widgets</strong> and <strong>Periodic Air Quality Notifications</strong>. To ensure your home screen widget displays current air quality for your immediate area and to deliver timely health advisories even when the App is closed or not actively in use, AQI Now may access your location periodically in the background.</p>
+            <p><strong>User Control:</strong> Background location access is strictly optional. You can grant, deny, or revoke background location access at any time through your device's Android Settings (<em>Settings &gt; Apps &gt; AQI Now &gt; Permissions &gt; Location</em>). If you choose not to grant background location access, the App will still function fully in the foreground, and widgets can update using your last searched or manually set location.</p>
+            <p><strong>No Background Tracking:</strong> Background location data is used exclusively to fetch relevant air quality readings. It is never used for advertising, behavioral profiling, or background movement tracking.</p>
+        </div>
+
+        <h3>Notifications</h3>
         <ul>
-            <li><strong>Search History:</strong> The App saves a local history of your AQI searches on your device. This data remains strictly on your device and is not uploaded to our servers.</li>
-            <li><strong>Data Deletion:</strong> You can delete this history at any time through the App's settings or by clearing the App's cache/data in your device's Android settings. Since we do not store this data on servers, deleting it locally removes it permanently.</li>
+            <li><strong>Permission:</strong> <span class="code-pill">POST_NOTIFICATIONS</span> (Android 13+)</li>
+            <li><strong>Purpose:</strong> To deliver periodic AQI updates, health recommendations, and severe pollution alerts based on your preferences.</li>
+            <li><strong>Control:</strong> You can customize notification intervals (e.g., every 2 hours, 4 hours, or off) directly in the App's settings or disable notifications completely in Android system settings.</li>
         </ul>
 
-        <h2>2. Use of Data</h2>
-        <p>AQI Now uses the collected data for various purposes:</p>
+        <h3>On-Device Local Storage</h3>
         <ul>
-            <li>To provide and maintain the App's functionality.</li>
-            <li>To calculate and display hyperlocal air quality indices.</li>
-            <li>To provide localized health advisories based on air quality levels.</li>
-            <li>To allow you to participate in interactive features of our App when you choose to do so.</li>
+            <li><strong>Data Stored:</strong> The App stores your preferred settings (such as notification intervals, language selection, and recent AQI search history) locally on your device using Android SharedPreferences and a local SQLite database.</li>
+            <li><strong>Storage Scope:</strong> This data remains strictly on your device and is never uploaded, synced, or backed up to our remote servers.</li>
         </ul>
 
-        <h2>3. Disclosure of Data</h2>
-        <h3>Service Providers</h3>
-        <p>We fetch air quality data from official third-party sources:</p>
+        <h2>2. How We Use Information</h2>
+        <p>We use the information collected solely to provide and improve the App's functionality:</p>
         <ul>
-            <li><strong>Central Pollution Control Board (CPCB) India:</strong> We use the official CPCB RSS feed to retrieve station-level data. This service does not receive any personal identifiers (like your name or email) from our App.</li>
+            <li>To calculate and display accurate, real-time Air Quality Index (AQI) values and individual pollutant levels (PM2.5, PM10, NO2, SO2, CO, OZONE).</li>
+            <li>To update your home screen widgets with relevant local data.</li>
+            <li>To send periodic local air quality notifications when enabled.</li>
+            <li>To display nearby monitoring stations on an interactive map.</li>
         </ul>
 
-        <h3>Legal Requirements</h3>
-        <p>We may disclose your Data in the good faith belief that such action is necessary to:</p>
+        <h2>3. Third-Party Services and Data Sources</h2>
+        <p>To calculate and present air quality data and map visualizations, the App interacts with the following services:</p>
         <ul>
-            <li>Comply with a legal obligation.</li>
-            <li>Protect and defend the rights or property of Excel Technologies India.</li>
-            <li>Prevent or investigate possible wrongdoing in connection with the App.</li>
-            <li>Protect the personal safety of users of the App or the public.</li>
+            <li><strong>AQI Now API Backend (https://anupamkhurana.com/aqi):</strong> Provides proximate station lookup and historical AQI trend data. All transmissions are encrypted using HTTPS/TLS. The backend does not log or store individual user location histories.</li>
+            <li><strong>Central Pollution Control Board (CPCB) India:</strong> Official government air quality monitoring station data used to deliver official Indian National AQI (NAQI) figures.</li>
+            <li><strong>Open-Meteo Air Quality API / CAMS:</strong> Used as a modeled fallback source and for historical trend calculations when local physical stations are unavailable.</li>
+            <li><strong>MapLibre &amp; OpenFreeMap / OpenStreetMap:</strong> Used to display vector map tiles for station visualization. No personally identifiable information is transmitted to map tile providers.</li>
+            <li><strong>Google Play Services:</strong> Provides standard Google Play In-App Updates and In-App Reviews.</li>
         </ul>
 
-        <h2>4. Security of Data</h2>
-        <p>The security of your data is important to us.</p>
+        <h2>4. Data Retention and Deletion (User Data Rights)</h2>
+        <p>Because AQI Now does not require user accounts, we do not store personal profiles on our servers.</p>
+        <h3>How to Delete Your Data:</h3>
         <ul>
-            <li><strong>Encryption:</strong> All data transmitted between the App and our official data sources (CPCB) is encrypted during transit using Transport Layer Security (TLS/HTTPS).</li>
-            <li><strong>Storage:</strong> We do not store your personal information or coordinates on our servers.</li>
+            <li><strong>Search History:</strong> You can clear your search history at any time from within the App by tapping the clear history option.</li>
+            <li><strong>Complete Data Removal:</strong> You can permanently delete all locally stored data, preferences, and cached readings at any time by going to your device's:
+                <br><em>Settings &gt; Apps &gt; AQI Now &gt; Storage &gt; Clear Storage / Clear Data</em>
+                <br>or by uninstalling the application.</li>
         </ul>
 
-        <h2>5. Children's Privacy</h2>
-        <p>Our App does not address anyone under the age of 13 ("Children").</p>
-        <p>We do not knowingly collect personally identifiable information from anyone under the age of 13. If you are a parent or guardian and you are aware that your Children has provided us with Personal Data, please contact us. If we become aware that we have collected Personal Data from children without verification of parental consent, we take steps to remove that information from our device and servers.</p>
+        <h2>5. Security of Your Data</h2>
+        <p>We take the security of your data seriously:</p>
+        <ul>
+            <li><strong>Encryption in Transit:</strong> All communications between the App and our backend servers are secured using Transport Layer Security (TLS/HTTPS).</li>
+            <li><strong>No Server-Side Tracking:</strong> We do not maintain databases tracking individual user locations, IP addresses, or device identifiers.</li>
+        </ul>
 
-        <h2>6. Your Data Protection Rights Under GDPR/CCPA</h2>
-        <p>Excel Technologies India aims to take reasonable steps to allow you to correct, amend, delete, or limit the use of your Personal Data. You have the right to access the data stored on your device and can delete your local history at any time through the App's settings.</p>
+        <h2>6. Children's Privacy</h2>
+        <p>AQI Now does not knowingly collect or solicit personal information from children under the age of 13. Since our App does not collect personally identifiable information from any user, children can safely view air quality information. If you have reason to believe that a child has provided us with personal information, please contact us so that we can take appropriate steps.</p>
 
         <h2>7. Changes to This Privacy Policy</h2>
-        <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date at the top.</p>
-        <p>You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.</p>
+        <p>We may update our Privacy Policy periodically to reflect changes in our practices or regulatory requirements. Any updates will be posted on this page with an updated "Last Updated" date. We encourage you to review this page periodically.</p>
 
         <h2>8. Contact Us</h2>
-        <p>If you have any questions about this Privacy Policy, please contact us:</p>
+        <p>If you have questions, suggestions, or concerns regarding this Privacy Policy or our data practices, please contact us:</p>
         <ul>
-            <li>By email: <a href="mailto:exceltechnologiesindia@gmail.com"><strong>exceltechnologiesindia@gmail.com</strong></a></li>
+            <li><strong>Developer:</strong> Excel Technologies India</li>
+            <li><strong>Email:</strong> <a href="mailto:exceltechnologiesindia@gmail.com">exceltechnologiesindia@gmail.com</a></li>
         </ul>
 
         <footer>

@@ -2,70 +2,106 @@
 
 **Last Updated: November 9, 2026**
 
-Excel Technologies India ("we," "us," or "our") operates the **AQI Now** mobile application (the "App"). This page informs you of our policies regarding the collection, use, and disclosure of personal data when you use our App and the choices you have associated with that data.
+Excel Technologies India ("we," "us," or "our") operates the **AQI Now** mobile application (the "App"). This Privacy Policy explains how we collect, use, and protect your information when you use our App, and describes your privacy rights in accordance with Google Play Developer Policies and global data protection regulations.
 
-## 1. Information Collection and Use
+---
 
-We collect several different types of information for various purposes to provide and improve our service to you. 
+### Core Principles
+- **No User Accounts:** You can use AQI Now without creating an account, registering, or providing any personal information (such as your name, email address, or phone number).
+- **No Advertisements:** AQI Now contains no third-party advertisements or ad tracking SDKs.
+- **No Data Selling:** We never sell, monetize, or rent your data to third parties.
 
-**Note: AQI Now does not require you to create an account or provide any personally identifiable information like your name, phone number, or email address to use the App.**
+---
 
-### Types of Data Collected
+## 1. Information Collection and Permissions
 
-#### Location Data
-To provide accurate air quality data for your specific location, the App requests access to your device's location.
-- **Precise Location (GPS and network-based)**: We use your precise location to calculate the "Estimated Local AQI" by interpolating data from the nearest official monitoring stations.
-- **Approximate Location (network-based)**: We may use approximate location if precise location is unavailable.
-- **Processing**: This location data is processed locally on your device or sent as a numerical coordinate (Latitude/Longitude) to air quality data providers (CPCB). We **do not** store a history of your real-time coordinates on our servers.
+### Location Data (Foreground and Background)
+AQI Now is an air quality monitoring application designed to provide hyperlocal Air Quality Index (AQI) readings, health advisories, and nearby station data. To deliver these services, the App requires access to your device location:
 
-#### Local Data Storage
-- **Search History**: The App saves a local history of your AQI searches on your device. This data remains on your device and is not uploaded to our servers.
-- **Data Deletion**: You can delete this history at any time through the App's settings or by clearing the App's cache/data in your device's Android settings. Since we do not store this data on servers, deleting it locally removes it permanently.
+1. **Foreground Location (Approximate and Precise):**
+   - **Permissions:** `android.permission.ACCESS_COARSE_LOCATION` and `android.permission.ACCESS_FINE_LOCATION`.
+   - **Purpose:** When the App is open, your location coordinates (Latitude and Longitude) are used to find the nearest official air quality monitoring stations, compute hyperlocal AQI values, and display your relative position on the air quality map.
+   - **Processing:** Coordinates are sent securely via HTTPS to our API server to query nearby monitoring stations. Your coordinates are never stored in tracking profiles or linked to your identity.
 
-## 2. Use of Data
+2. **Background Location (Prominent Disclosure):**
+   - **Permission:** `android.permission.ACCESS_BACKGROUND_LOCATION`.
+   - **Why Background Location is Needed:** AQI Now provides **Home Screen Widgets** and **Periodic Air Quality Notifications**. To ensure your home screen widget displays the current air quality for your immediate area and to deliver timely health advisories even when you are not actively using or looking at the App, AQI Now may access your location periodically in the background.
+   - **User Control:** Background location access is strictly optional. You can grant, deny, or revoke background location access at any time through your device's Android Settings (`Settings > Apps > AQI Now > Permissions > Location`). If you choose not to grant background location access, the App will still function fully in the foreground, and widgets can update using your last searched or manually set location.
+   - **No Background Tracking:** Background location data is used exclusively to fetch relevant air quality readings. It is never used for advertising, behavioral profiling, or background movement tracking.
 
-AQI Now uses the collected data for various purposes:
-- To provide and maintain the App's functionality.
-- To calculate and display hyperlocal air quality indices.
-- To provide localized health advisories based on air quality levels.
-- To allow you to participate in interactive features of our App when you choose to do so.
+### Notifications
+- **Permission:** `android.permission.POST_NOTIFICATIONS` (Android 13+).
+- **Purpose:** To deliver periodic AQI updates, health recommendations, and severe pollution alerts based on your preferences.
+- **Control:** You can customize the notification frequency (e.g., every 2 hours, 4 hours, or off) directly in the App's settings or disable notifications completely in Android system settings.
 
-## 3. Disclosure of Data
+### On-Device Local Storage
+- **Data Stored:** The App stores your preferred settings (such as notification intervals, language selection, and recent AQI search history) locally on your device using Android SharedPreferences and a local SQLite database.
+- **Storage Scope:** This data remains strictly on your device and is never uploaded, synced, or backed up to our remote servers.
 
-### Service Providers
-We fetch air quality data from official third-party sources:
-- **Central Pollution Control Board (CPCB) India**: We use the official CPCB RSS feed to retrieve station-level data. This service does not receive any personal identifiers (like your name or email) from our App.
+---
 
-### Legal Requirements
-We may disclose your Data in the good faith belief that such action is necessary to:
-- To comply with a legal obligation.
-- To protect and defend the rights or property of Excel Technologies India.
-- To prevent or investigate possible wrongdoing in connection with the App.
-- To protect the personal safety of users of the App or the public.
+## 2. How We Use Information
 
-## 4. Security of Data
+We use the information collected solely to provide and improve the App's functionality:
+- To calculate and display accurate, real-time Air Quality Index (AQI) values and individual pollutant levels (PM2.5, PM10, NO2, SO2, CO, OZONE).
+- To update your home screen widgets with relevant local data.
+- To send periodic local air quality notifications when enabled.
+- To display nearby monitoring stations on an interactive map.
 
-The security of your data is important to us.
-- **Encryption**: All data transmitted between the App and our official data sources (CPCB) is encrypted during transit using Transport Layer Security (TLS/HTTPS).
-- **Storage**: We do not store your personal information or coordinates on our servers.
+---
 
-## 5. Children's Privacy
+## 3. Third-Party Services and Data Sources
 
-Our App does not address anyone under the age of 13 ("Children").
+To calculate and present air quality data and map visualizations, the App interacts with the following services:
 
-We do not knowingly collect personally identifiable information from anyone under the age of 13. If you are a parent or guardian and you are aware that your Children has provided us with Personal Data, please contact us. If we become aware that we have collected Personal Data from children without verification of parental consent, we take steps to remove that information from our device and servers.
+- **AQI Now API Backend (`https://anupamkhurana.com/aqi`):**
+  Provides proximate station lookup and historical AQI trend data. All transmissions are encrypted using HTTPS/TLS. The backend does not log or store individual user location histories.
+- **Central Pollution Control Board (CPCB) India:**
+  Official government air quality monitoring station data used to deliver official Indian National AQI (NAQI) figures.
+- **Open-Meteo Air Quality API / CAMS:**
+  Used as a modeled fallback source and for historical trend calculations when local physical stations are unavailable.
+- **MapLibre & OpenFreeMap / OpenStreetMap:**
+  Used to display vector map tiles for station visualization. No personally identifiable information is transmitted to map tile providers.
+- **Google Play Services:**
+  Provides standard Google Play In-App Updates and In-App Reviews.
 
-## 6. Your Data Protection Rights Under GDPR/CCPA
+---
 
-Excel Technologies India aims to take reasonable steps to allow you to correct, amend, delete, or limit the use of your Personal Data. You have the right to access the data stored on your device and can delete your local history at any time through the App's settings.
+## 4. Data Retention and Deletion (User Data Rights)
+
+Because AQI Now does not require user accounts, we do not store personal profiles on our servers.
+
+### How to Delete Your Data:
+- **Search History:** You can clear your search history at any time from within the App by tapping the clear history option.
+- **Complete Data Removal:** You can permanently delete all locally stored data, preferences, and cached readings at any time by going to your device's:  
+  `Settings > Apps > AQI Now > Storage > Clear Storage / Clear Data`  
+  or by uninstalling the application.
+
+---
+
+## 5. Security of Your Data
+
+We take the security of your data seriously:
+- **Encryption in Transit:** All communications between the App and our backend servers are secured using Transport Layer Security (TLS/HTTPS).
+- **No Server-Side Tracking:** We do not maintain databases tracking individual user locations, IP addresses, or device identifiers.
+
+---
+
+## 6. Children's Privacy
+
+AQI Now does not knowingly collect or solicit personal information from children under the age of 13. Since our App does not collect personally identifiable information from any user, children can safely view air quality information. If you have reason to believe that a child has provided us with personal information, please contact us so that we can take appropriate steps.
+
+---
 
 ## 7. Changes to This Privacy Policy
 
-We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date at the top.
+We may update our Privacy Policy periodically to reflect changes in our practices or regulatory requirements. Any updates will be posted on this page with an updated "Last Updated" date. We encourage you to review this page periodically.
 
-You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.
+---
 
 ## 8. Contact Us
 
-If you have any questions about this Privacy Policy, please contact us:
-- By email: **exceltechnologiesindia@gmail.com**
+If you have questions, suggestions, or concerns regarding this Privacy Policy or our data practices, please contact us:
+
+- **Developer:** Excel Technologies India
+- **Email:** [exceltechnologiesindia@gmail.com](mailto:exceltechnologiesindia@gmail.com)
